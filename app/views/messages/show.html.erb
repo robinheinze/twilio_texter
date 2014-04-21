@@ -1,0 +1,7 @@
+<h2>Why hello, I am a message.</h2>
+
+<p>This message is to: <b><%= @message.formatted_number(@message.to) %></b></p>
+<p>This message is from: <b><%= @message.formatted_number(@message.from) %></b></p>
+<p>This message said, in its entirety: "<i><%= @message.body %></i>"</p>
+
+<%= link_to "Flee this message for the safety of the message herd!", messages_path, class: 'btn btn-info' %>

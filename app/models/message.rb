@@ -4,6 +4,21 @@ class Message < ActiveRecord::Base
   validates :from, presence: true
   before_create :send_message
 
+  def formatted_number(number)
+    if number.length == 10
+      result = "("
+      result += number[0,3]
+      result +=  ") "
+      result += number[3,3]
+      result += "-"
+      result += number[6,4]
+    elsif number.length == 7
+      result += number[0,3]
+      result += "-"
+      result += number[3,4]
+    end
+  end
+
   private
 
   def send_message
