@@ -1,3 +1,21 @@
 .form {
   width: 300px;
 }
+
+.navbar {
+  background-color: powderblue;
+}
+
+.navbar a {
+  color: black;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 40px;
+  font-family: 'Crafty Girls', 'cursive';
+}
