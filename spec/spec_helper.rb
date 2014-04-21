@@ -40,3 +40,11 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.filter_sensitive_data('<twilio test account sid>') { ENV['TWILIO_TEST_ACCOUNT_SID'] }
+  c.filter_sensitive_data('<twilio test auth token>') { ENV['TWILIO_TEST_AUTH_TOKEN'] }
+end
