@@ -13,7 +13,7 @@
 <div class="form">
   <%= form_for @message, :remote => true do |f| %>
     <div class="form-group recipient_area">
-      <%= render 'recipient_form', :ff => f %>
+      <%= render 'recipient_form', f: f %>
     </div>
     <%= link_to "Add another recipient", new_recipient_path, :remote => true %>
     <div class="form-group">

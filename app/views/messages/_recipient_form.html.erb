@@ -1,3 +1,5 @@
-
-<%= ff.collection_select :recipients_hash, @contacts, :id, :name %>
+<%= f.fields_for @message.recipients.new do |r| %>
+  <%= r.label :contact_id, "To" %>
+  <%= r.collection_select :contact_id, @contacts, :id, :name %>
+<% end %>
 
