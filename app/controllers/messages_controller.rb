@@ -9,6 +9,8 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    @contacts = Contact.order(:name)
+    @recipient = Recipient.new
   end
 
   def create
