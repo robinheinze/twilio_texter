@@ -7,14 +7,20 @@
     <% @message.errors.full_messages.each do |error_message| %>
       <li><%= error_message %></li>
     <% end %>
+
+
   </ul>
 <% end %>
 
 <div class="form">
   <%= form_for @message, :class => 'form-inline' do |f| %>
     <div class="form-group">
-      <%= f.label :to %>
-      <%= f.collection_select :to, Contact.order(:name), :phone, :name, :class => 'form-control' %>
+      <%= f.fields_for :recipients do |t| %>
+        <div class="form-group">
+          <%= t.label :contact_id, "Recipient" %>
+          <%= t.collection_select :contact_id, Contact.order(:name), :id, :name, :class => 'form-control' %>
+        </div>
+      <% end %>
     </div>
 
     <div class="form-group">
