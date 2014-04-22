@@ -1,3 +1,0 @@
-<%= form_for Message.new, :url => messages_path, :authenticity_token => false do |f| %>
-  <%= render :partial => "recipient_form", locals: {f: f, child_index: Time.now.to_i} %>
-<% end %>
