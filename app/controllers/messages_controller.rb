@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
       end
       redirect_to messages_path
     else
-      render 'new'
+      render :get_recipients
     end
   end
 

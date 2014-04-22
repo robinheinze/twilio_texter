@@ -1,0 +1,4 @@
+<%= form_for [:recipients, Recipient.new], :child_index => @child_index do |r| %>
+  <%= r.collection_select :contact_id, @contacts, :id, :name %>
+<% end %>
+

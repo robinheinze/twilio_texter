@@ -1,4 +1,4 @@
-<%= f.fields_for @message.recipients.new do |r| %>
+<%= f.fields_for :recipeients, Recipient.new, :child_index => child_index do |r| %>
   <%= r.label :contact_id, "To" %>
   <%= r.collection_select :contact_id, @contacts, :id, :name %>
 <% end %>
