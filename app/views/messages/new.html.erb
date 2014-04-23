@@ -7,18 +7,25 @@
     <% @message.errors.full_messages.each do |error_message| %>
       <li><%= error_message %></li>
     <% end %>
+
+
   </ul>
 <% end %>
 
 <div class="form">
-  <%= form_for @message, :remote => true do |f| %>
-    <div class="form-group recipient_area">
-      <%= render 'recipient_form', :ff => f %>
+  <%= form_for @message, :class => 'form-inline' do |f| %>
+    <div class="form-group">
+      <%= f.fields_for :recipients do |t| %>
+        <div class="form-group">
+          <%= t.label :contact_id, "Recipient" %>
+          <%= t.collection_select :contact_id, Contact.order(:name), :id, :name, :class => 'form-control' %>
+        </div>
+      <% end %>
     </div>
-    <%= link_to "Add another recipient", new_recipient_path, :remote => true %>
+
     <div class="form-group">
       <%= f.label :from %>
-     <%= f.collection_select :from, @contacts, :phone, :name, :class => 'form-control' %>
+     <%= f.collection_select :from, Contact.order(:name), :phone, :name, :class => 'form-control' %>
     </div>
 
     <div class="form-group">

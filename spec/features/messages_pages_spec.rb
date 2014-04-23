@@ -1,4 +1,4 @@
-# require 'spec_helper'
+require 'spec_helper'
 
 # feature 'user can navigate to new message form', :vcr => true do
 #   scenario 'user visits homepage and clicks new message button' do

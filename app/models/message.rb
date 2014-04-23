@@ -1,8 +1,12 @@
 class Message < ActiveRecord::Base
-  has_many :recipients
-  has_many :contacts, through: :recipients
   validates :body, presence: true
   validates :from, presence: true
+  has_many :recipients
+  has_many :contacts, through: :recipients
   accepts_nested_attributes_for :recipients
-  attr_accessor :recipients_hash
+
+  # def recipients_attributes=(attributes)
+
+  # end
 end
+
